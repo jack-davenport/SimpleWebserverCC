@@ -26,8 +26,6 @@ jobs:
       uses: 'google-github-actions/setup-gcloud@v0'
       
     - name: 'Submit to cloud build'
-      run: |
-    
-        gcloud builds submit --tag gcr.io/alert-arbor-261117/simple-webserver
+      run:  gcloud builds submit --tag gcr.io/alert-arbor-261117/simple-webserver
     - name: 'Deploy to Cloud Run'
       run: gcloud run deploy simple-webserver --image=gcr.io/alert-arbor-261117/simple-webserver:latest --region=us-central1 --allow-unauthenticated
